@@ -1,0 +1,96 @@
+<?= $this->extend('layouts/dashboard_layout') ?>
+
+<?= $this->section('content') ?>
+<div class=" w-full px-4 md:px-6! py-6 mx-auto">
+    <div class="relative flex flex-col w-full min-w-0 mb-0 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+        <div class="p-6 pb-0 mb-0 bg-white rounded-t-2xl">
+            <div class="w-full flex flex-col md:flex-row! justify-between">
+                <div class="flex-1 flex items-center justify-between mb-2">
+                    <h6 class="mb-4">Riwayat Pengajuan</h6>
+                </div>
+                <div class="flex-1 flex mb-4">
+                    <form method="get" action="<?= base_url('masyarakat/pengajuan-surat/riwayat')  ?>" class="w-full flex flex-col md:flex-row! justify-start" style="gap: .8rem;">
+                        <div class="relative flex flex-1 flex-wrap items-stretch transition-all rounded-lg ease">
+                            <input name="no_surat" value="<?= esc($filter_no_surat ?? '') ?>" type="text" class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850  bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Cari nama atau nik...">
+                            <span class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <select name="jenis_surat_id" class="text-sm focus:shadow-primary-outline leading-5.6 ease block rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-blue-500 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow">
+                            <option value="">Semua Jenis</option>
+                            <?php foreach ($jenisSurat as $jenisSurat): ?>
+                                <option value="<?= $jenisSurat['id'] ?>" <?= ($filter_jenis_surat ?? '') == $jenisSurat['id'] ? 'selected' : '' ?>><?= $jenisSurat['nama'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <button type="submit" class="inline-block px-6 py-3 font-bold text-center text-blue-500 uppercase align-middle transition-all bg-transparent border border-blue-500 rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">Cari</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="flex-auto px-0 pt-0 pb-2">
+            <div class="p-0 overflow-x-auto">
+                <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500 px-6">
+                    <thead class="align-bottom">
+                        <tr>
+                            <th class="py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">No</th>
+                            <th class="py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">No Surat</th>
+                            <th class="py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Jenis Surat</th>
+                            <th class="py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Tanggal Pengajuan</th>
+                            <th class="py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Tanggal Selesai</th>
+                            <th class="py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Status</th>
+                            <th class="py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-gray-200 shadow-none text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($riwayat as $index => $riwayat): ?>
+                            <tr>
+                                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                    <p class="mb-0 font-semibold leading-tight text-xs"><?= $index ?></p>
+                                </td>
+                                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                    <div class="flex px-2 py-1">
+                                        <h6 class="mb-0 leading-normal text-sm"><?= $riwayat['no_surat'] ?></h6>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                    <p class="mb-0 font-semibold leading-tight text-xs"><?= $riwayat['jenis_surat'] ?></p>
+                                </td>
+                                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                    <p class="mb-0 font-semibold leading-tight text-xs"><?= $riwayat['tanggal_pengajuan'] ?></p>
+                                </td>
+                                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                    <p class="mb-0 font-semibold leading-tight text-xs"><?= $riwayat['tanggal_selesai'] ?? '-' ?></p>
+                                </td>
+                                <td class="p-2 leading-normal text-center align-middle bg-transparent border-b text-sm whitespace-nowrap shadow-transparent">
+                                    <?php if ($riwayat['status'] == 'selesai') : ?>
+                                        <span class="py-1.4 px-2.5 text-xs rounded-1.8 inline-block whitespace-nowrap text-center bg-gradient-to-tl from-emerald-500 to-teal-400 align-baseline font-bold uppercase leading-none text-white"><?= $riwayat['status'] ?></span>
+                                    <?php elseif ($riwayat['status'] == 'diajukan') : ?>
+                                        <span class="py-1.4 px-2.5 text-xs rounded-1.8 inline-block whitespace-nowrap text-center bg-gradient-to-tl from-blue-700 to-cyan-500 align-baseline font-bold uppercase leading-none text-white"><?= $riwayat['status'] ?></span>
+                                    <?php elseif ($riwayat['status'] == 'verifikasi') : ?>
+                                        <span class="py-1.4 px-2.5 text-xs rounded-1.8 inline-block whitespace-nowrap text-center bg-gradient-to-tl from-orange-500 to-yellow-500 align-baseline font-bold uppercase leading-none text-white"><?= $riwayat['status'] ?></span>
+                                    <?php elseif ($riwayat['status'] == 'ditolak') : ?>
+                                        <span class="py-1.4 px-2.5 text-xs rounded-1.8 inline-block whitespace-nowrap text-center bg-gradient-to-tl from-red-600 to-orange-600 align-baseline font-bold uppercase leading-none text-white"><?= $riwayat['status'] ?></span>
+                                    <?php endif; ?>
+                                </td>
+                                <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
+                                    <?php if ($riwayat['status'] == 'selesai'): ?>
+                                        <a href="<?= base_url('surat/download/' . $riwayat['id']) ?>" class="mr-1 inline-block px-4 py-2 font-bold text-center bg-blue-500 uppercase align-middle transition-all rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md text-white">Unduh</a>
+                                    <?php else : ?>
+                                        <button type="button" class="mr-1 inline-block px-4 py-2 font-bold text-center bg-gradient-to-tl from-slate-600 to-slate-300 uppercase align-middle transition-all rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md text-white">Unduh</button>
+                                    <?php endif; ?>
+                                    <a href="<?= base_url('masyarakat/pengajuan-surat/' . $riwayat['id'] . '/hapus') ?>" class="mr-1 inline-block px-4 py-2 font-bold text-center bg-gradient-to-tl from-red-600 to-orange-600 uppercase align-middle transition-all rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md text-white">Hapus</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 mb-6!" style="width: max-content; margin: auto;">
+                <?php if ($pager->getPageCount() > 0): ?>
+                    <?= $pager->links('riwayat', 'tailwind_pagination') ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
