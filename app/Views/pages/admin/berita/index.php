@@ -44,7 +44,7 @@
                                     <p class="mb-0 font-semibold leading-tight text-xs"><?= date('d-m-Y', strtotime($berita['created_at'])) ?></p>
                                 </td>
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                    <a href="<?= base_url('admin/data-berita/delete/' . $berita['id']) ?>" class="mr-1 inline-block px-4 py-2 font-bold text-center bg-gradient-to-tl from-red-600 to-orange-600 uppercase align-middle transition-all rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md text-white">Hapus</a>
+                                    <a href="<?= base_url('admin/hapus-berita/' . $berita['id']) ?>" class="mr-1 inline-block px-4 py-2 font-bold text-center bg-gradient-to-tl from-red-600 to-orange-600 uppercase align-middle transition-all rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md text-white">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -82,6 +82,7 @@ $routes->group('admin', ['filter' => 'auth:admin'], function ($routes) {
     //Berita
     $routes->get('daftar-berita', 'Berita::daftarBerita');
     $routes->get('tulis-berita', 'Berita::form_tambah');
+    $routes->get('hapus-berita/(:num)', 'Berita::hapus/$1');
     $routes->post('berita/simpan', 'Berita::simpan');
 
     // Kop Surat

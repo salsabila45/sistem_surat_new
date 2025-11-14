@@ -76,7 +76,7 @@
         <div class="flex-1 relative z-0 flex flex-col min-w-0 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border w-full">
             <div class="px-4 md:px-8! py-6 bg-white rounded-xl" id="preview_surat">
                 <div class="flex items-center justify-center">
-                    <img src="/assets/uploads/desa/<?= $kopSurat['logo'] ?>" alt="" class="w-16 h-16 justify-start">
+                    <img src="/uploads/desa/<?= $kopSurat['logo'] ?>" alt="" class="w-16 h-16 justify-start">
                     <div id="kop_surat_slot" class="text-center border-b flex-1">
                         <h2 class="text-lg font-bold uppercase"><?= $kopSurat['nama_instansi'] ?></h2>
                         <h3 class="text-base font-semibold uppercase">Kecamatan <?= $kopSurat['kecamatan'] ?> DESA <?= $kopSurat['desa'] ?></h3>

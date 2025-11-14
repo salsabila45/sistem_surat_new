@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/layout') ?>
 
 <?= $this->section('content') ?>
-<div class="bg-top relative flex items-start pt-10 mx-0 pb-12 m-4 overflow-hidden bg-cover rounded-xl bg-[url('http://localhost:8080/<?= $ilustrasiDesa ?>')]">
+<div class="bg-top relative flex items-start pt-10 mx-0 pb-12 m-4 overflow-hidden bg-cover rounded-xl bg-[url('<?= base_url($ilustrasiDesa) ?>')]">
     <img src="<?= $ilustrasiDesa ?>" alt="" class="w-0 h-0 absolute hidden">
     <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-zinc-800 to-zinc-700 opacity-60"></span>
     <div class="container z-10">

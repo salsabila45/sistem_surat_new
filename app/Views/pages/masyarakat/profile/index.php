@@ -10,7 +10,7 @@
                         <div class="w-3/12 max-w-full px-3 flex-0 ">
                             <div class="mt-10">
                                 <?php if ($dataWarga['foto']): ?>
-                                    <img class="mx-auto w-full h-auto max-w-full border-2 border-white border-solid rounded-circle" src="/uploads/foto_warga/" alt="profile image">
+                                    <img class="mx-auto w-full h-auto aspect-square! max-w-full border-2 border-white border-solid rounded-circle" src="/uploads/foto_warga/<?= $dataWarga['foto'] ?>" alt="profile image">
                                 <?php else : ?>
                                     <div class="w-full h-auto aspect-1/1 bg-slate-200 rounded-full flex items-center justify-center">
                                         <span class="text-sm">Upload</span>

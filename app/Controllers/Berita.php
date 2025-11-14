@@ -134,4 +134,20 @@ class Berita extends BaseController
 
         return redirect()->to('/admin/tulis-berita')->with('success', 'Berita berhasil ditambahkan!');
     }
+
+    public function hapus($id)
+    {
+        // Check if data exists
+        $berita = $this->beritaModel->find($id);
+        if (!$berita) {
+            return redirect()->back()->with('error', 'Berita tidak ditemukan');
+        }
+
+        // Delete the record
+        $this->beritaModel->delete($id);
+
+        // Redirect back with success message
+        return redirect()->to('/admin/daftar-berita')
+            ->with('success', 'Berita berhasil dihapus');
+    }
 }

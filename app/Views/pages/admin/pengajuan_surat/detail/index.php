@@ -81,17 +81,17 @@
                                 <tr>
                                     <td class="py-2 pr-3 font-semibold">NIK</td>
                                     <td class="py-2 pr-3">:</td>
-                                    <td class="py-2 pr-3"><?= $warga['nik'] ?></td>
+                                    <td class="py-2 pr-3"><?= $pengajuan['nik'] ?></td>
                                 </tr>
                                 <tr>
                                     <td class="py-2 pr-3 font-semibold">Nama Lengkap</td>
                                     <td class="py-2 pr-3">:</td>
-                                    <td class="py-2 pr-3"><?= $warga['nama_lengkap'] ?></td>
+                                    <td class="py-2 pr-3"><?= $pengajuan['nama'] ?></td>
                                 </tr>
                                 <tr>
                                     <td class="py-2 pr-3 font-semibold">Alamat</td>
                                     <td class="py-2 pr-3">:</td>
-                                    <td class="py-2 pr-3"><?= $warga['alamat'] ?></td>
+                                    <td class="py-2 pr-3"><?= $pengajuan['alamat'] ?></td>
                                 </tr>
                             </tbody>
                         </table>

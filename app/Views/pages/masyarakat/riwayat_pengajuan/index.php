@@ -9,9 +9,9 @@
                     <h6 class="mb-4">Riwayat Pengajuan</h6>
                 </div>
                 <div class="flex-1 flex mb-4">
-                    <form method="get" action="<?= base_url('masyarakat/pengajuan-surat/riwayat')  ?>" class="w-full flex flex-col md:flex-row! justify-start" style="gap: .8rem;">
+                    <form method="get" action="<?= base_url('/masyarakat/riwayat-pengajuan')  ?>" class="w-full flex flex-col md:flex-row! justify-start" style="gap: .8rem;">
                         <div class="relative flex flex-1 flex-wrap items-stretch transition-all rounded-lg ease">
-                            <input name="no_surat" value="<?= esc($filter_no_surat ?? '') ?>" type="text" class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850  bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Cari nama atau nik...">
+                            <input name="no_surat" value="<?= esc($filter_no_surat ?? '') ?>" type="text" class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850  bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Cari No Surat...">
                             <span class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
                                 <i class="fas fa-search" aria-hidden="true"></i>
                             </span>

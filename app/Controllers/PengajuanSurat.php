@@ -112,7 +112,6 @@ class PengajuanSurat extends BaseController
 
         return view('pages/admin/pengajuan_surat/detail/index', [
             'user' => $this->user,
-            'warga' => $dataWarga,
             'pengajuan' => $pengajuan,
             'jenisSurat' => $jenisSurat,
             'lampiran' => $lampiran ?? [],
