@@ -5,8 +5,11 @@
     <div class="relative flex flex-col w-full min-w-0 mb-0 break-words bg-white border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
         <div class="p-6 pb-0 mb-0 bg-white rounded-t-2xl">
             <div class="flex items-center justify-between mb-2">
-                <h6 class="mb-4">Daftar Berita</h6>
+                <h6 class="">Daftar Berita</h6>
             </div>
+        </div>
+        <div class="px-6 py-1">
+            <?= view('components/alert') ?>
         </div>
         <div class="flex-auto px-0 pt-0 pb-2">
             <div class="p-0 overflow-x-auto">

@@ -1,7 +1,10 @@
 <?= $this->extend('layouts/dashboard_layout') ?>
 
 <?= $this->section('content') ?>
-<div class="flex flex-col md:flex-row! items-start justify-center gap-4 md:gap-6 px-4 md:px-6!" style="margin-top: 5rem;">
+<div class="px-6 py-1 mt-6">
+    <?= view('components/alert') ?>
+</div>
+<div class="flex flex-col md:flex-row! items-start justify-center gap-4 md:gap-6 px-4 md:px-6!">
     <div class="flex-1 w-full relative z-0 flex flex-col min-w-0 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border">
         <div class="p-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
             <h5>Hak Akses Admin</h5>

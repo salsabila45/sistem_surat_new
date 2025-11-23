@@ -24,7 +24,7 @@
         </ul>
     </div>
 
-    <div class="mx-4">
+    <div class="mx-4 mt-6">
         <a href="/logout" class="inline-block w-full px-8 py-2 mb-4 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-slate-700 bg-150 hover:shadow-xs hover:-translate-y-px">Logout</a>
     </div>
 </aside>

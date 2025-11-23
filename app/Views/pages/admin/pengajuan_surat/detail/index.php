@@ -104,6 +104,9 @@
             <div class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                 <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-4">
                     <h6 class="capitalize ">Pengesahan Surat</h6>
+                    <div class="py-2">
+                        <?= view('components/alert') ?>
+                    </div>
                     <?php if ($pengajuan['status'] !== 'selesai') : ?>
                         <div class="flex" style="gap: .8rem;">
                             <form action="<?= base_url('/admin/pengajuan-surat/' . $pengajuan['id'] . '/ubah-status') ?>" class="flex-1 mt-4" method="post">

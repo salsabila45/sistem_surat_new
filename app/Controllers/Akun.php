@@ -62,7 +62,7 @@ class Akun extends BaseController
             'password' => $this->request->getPost('password'),
         ]);
 
-        return redirect()->to('/admin/kelola-akun')->with('success', 'Admin berhasil ditambahkan!');
+        return redirect()->to('/admin/kelola-akun')->with('success', $this->request->getPost('username') . ' berhasil ditambahkan!');
     }
 
     /**
@@ -115,7 +115,7 @@ class Akun extends BaseController
 
         $this->adminModel->update($id, $data);
 
-        return redirect()->to('/admin/kelola-akun')->with('success', 'Data admin berhasil diperbarui!');
+        return redirect()->to('/admin/kelola-akun')->with('success', 'Data akun berhasil diperbarui!');
     }
 
     /**
@@ -124,6 +124,6 @@ class Akun extends BaseController
     public function hapus($id)
     {
         $this->adminModel->delete($id);
-        return redirect()->to('/admin/kelola-akun')->with('success', 'Admin berhasil dihapus!');
+        return redirect()->to('/admin/kelola-akun')->with('success', 'Akun berhasil dihapus!');
     }
 }

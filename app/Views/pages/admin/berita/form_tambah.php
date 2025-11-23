@@ -6,21 +6,23 @@
         <div class="p-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
             <h5>Tambah Berita</h5>
         </div>
+        <div class="px-6 py-1">
+            <?= view('components/alert') ?>
+        </div>
         <div class="flex-auto p-6">
             <form action="<?= base_url('/admin/berita/simpan') ?>" method="POST" enctype="multipart/form-data">
                 <div class="mb-4">
-                    <label for="judul">Judul Berita</label><br>
+                    <label class="mb-2" for="judul">Judul Berita</label><br>
                     <input type="text" name="judul" id="judul" value="<?= old('judul') ?>" required class="placeholder:text-gray-500 text-sm focus:shadow-primary-outline leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-blue-500 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" placeholder="Perbaikan jalan desa">
                 </div>
 
-
                 <div class="mb-4">
-                    <label for="isi">Isi Berita</label><br>
+                    <label class="mb-2" for="isi">Isi Berita</label><br>
                     <textarea name="isi" id="isi_txtarea" data-content='<?= htmlspecialchars($jenisSurat["template"] ?? "", ENT_QUOTES) ?>'></textarea>
                 </div>
 
                 <div class="mb-4">
-                    <label for="deskripsi">Kategori</label><br>
+                    <label class="mb-2" for="deskripsi">Kategori</label><br>
                     <select name="kategori_id" class="w-full border border-gray-300 p-2 rounded">
                         <option value="">-- Pilih Kategori --</option>
                         <?php foreach ($kategori as $k): ?>

@@ -1,7 +1,10 @@
 <?= $this->extend('layouts/dashboard_layout') ?>
 
 <?= $this->section('content') ?>
-<div class="px-4 md:px-6! flex flex-col lg:flex-row! items-start justify-center gap-4" style="margin-top: 5rem;">
+<div class="px-6 mt-6">
+    <?= view('components/alert') ?>
+</div>
+<div class="px-4 md:px-6! flex flex-col lg:flex-row! items-start justify-center gap-4">
     <div class="w-full relative z-0 flex flex-col min-w-0 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border">
         <div class="p-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
             <h5>Profil Desa</h5>

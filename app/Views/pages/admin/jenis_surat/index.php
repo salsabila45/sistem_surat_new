@@ -26,6 +26,9 @@
                 </div>
             </div>
         </div>
+        <div class="px-6 py-1">
+            <?= view('components/alert') ?>
+        </div>
         <div class="flex-auto px-0 pt-0 pb-2">
             <div class="p-0 overflow-x-auto">
                 <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">

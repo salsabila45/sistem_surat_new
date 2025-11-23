@@ -99,6 +99,9 @@
         </div>
         <div class="flex-auto px-0 pt-0 pb-2">
             <div class="p-0 overflow-x-auto">
+                <div class="px-6 py-1">
+                    <?= view('components/alert') ?>
+                </div>
                 <table class="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
                     <thead class="align-bottom">
                         <tr>
@@ -126,7 +129,7 @@
                                     <p class="mb-0 font-semibold leading-tight text-xs"><?= $warga['nama_lengkap'] ?></p>
                                 </td>
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                    <p class="mb-0 font-semibold leading-tight text-xs"><?= $warga['tempat_lahir'] ?>, <?= date( 'd-m-Y', strtotime($warga['tanggal_lahir'])) ?></p>
+                                    <p class="mb-0 font-semibold leading-tight text-xs"><?= $warga['tempat_lahir'] ?>, <?= date('d-m-Y', strtotime($warga['tanggal_lahir'])) ?></p>
                                 </td>
                                 <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                     <p class="mb-0 font-semibold leading-tight text-xs"><?= $warga['alamat'] ?></p>
