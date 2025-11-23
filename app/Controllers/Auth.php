@@ -9,7 +9,6 @@ class Auth extends BaseController
 {
     public function login_form()
     {
-
         if ($this->user && $this->user['isLoggedIn']) {
             switch ($this->user['role']) {
                 case 'admin':
@@ -24,7 +23,10 @@ class Auth extends BaseController
         }
 
         $loginType = $this->request->getGet('type') ?? 'masyarakat';
-        return view('pages/auth/login', ["login_type" => $loginType]);
+        return view('pages/auth/login', [
+            "login_type" => $loginType,
+            "siteLogo" => $this->getSiteLogo()
+        ]);
     }
 
     public function login()
