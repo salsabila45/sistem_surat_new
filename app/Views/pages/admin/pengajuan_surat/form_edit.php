@@ -74,6 +74,15 @@
         </div>
         <div class="flex-1 relative z-0 flex flex-col min-w-0 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border w-full">
             <div class="px-4 md:px-8! py-6 bg-white rounded-xl" id="preview_surat">
+                <div class="kop-surat flex items-center justify-center">
+                    <img src="/uploads/desa/<?= $kopSurat['logo'] ?>" alt="" class="logo-kop w-16 h-16 justify-start">
+                    <div class="institusi text-center border-b flex-1">
+                        <h2 class="text-lg font-bold uppercase"><?= $kopSurat['nama_instansi'] ?></h2>
+                        <h3 class="text-base font-semibold uppercase">Kecamatan <?= $kopSurat['kecamatan'] ?> DESA <?= $kopSurat['desa'] ?></h3>
+                        <p class="text-sm"><?= $kopSurat['alamat'] ?>, Kode Pos <?= $kopSurat['kode_pos'] ?></p>
+                    </div>
+                    <img src="/uploads/desa/<?= $kopSurat['logo'] ?>" alt="" class="logo-hidden w-16 h-16 justify-start opacity-0">
+                </div>
                 <div id="preview_slot"></div>
             </div>
         </div>
@@ -138,17 +147,6 @@
     const dataWarga = <?= json_encode($dataWarga) ?>;
     const dataKopSurat = <?= json_encode($kopSurat) ?>;
 
-    const kopSurat = `
-                <div class="kop-surat flex items-center justify-center">
-                    <img src="/uploads/desa/${dataKopSurat.logo}" alt="" class="logo-kop w-16 h-16 justify-start">
-                    <div class="institusi text-center border-b flex-1">
-                        <h2 class="text-lg font-bold uppercase">${dataKopSurat.nama_instansi}</h2>
-                        <h3 class="text-base font-semibold uppercase">Kecamatan ${dataKopSurat.kecamatan} DESA ${dataKopSurat.desa}</h3>
-                        <p class="text-sm">${dataKopSurat.alamat}, Kode Pos ${dataKopSurat.kode_pos}</p>
-                    </div>
-                    <img src="/uploads/desa/${dataKopSurat.logo}" alt="" class="logo-hidden w-16 h-16 justify-start opacity-0">
-                </div>`
-
     function gen_konten_surat({
         noSurat,
         judul,
@@ -188,11 +186,15 @@
         isi = renderTemplate(isi, warga);
 
         const noSurat = noSuratInput.value.trim();
-
         slotPreview.innerHTML = `
-            ${kopSurat}
-            ${gen_konten_surat({ noSurat, judul, isi})}
-        `
+        <style>
+            table { margin-bottom: 1rem; }
+        </style>
+        ${gen_konten_surat({
+            noSurat,
+            judul,
+            isi
+        })}`
 
         contentSuratInput.value = gen_konten_surat({
             noSurat,
