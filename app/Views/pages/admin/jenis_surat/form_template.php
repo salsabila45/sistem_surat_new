@@ -100,52 +100,33 @@
 <?= $this->section('script') ?>
 
 <script>
-    const isiSurat = <?= json_decode($jenisSurat["template"]) ?>
+    function generateVariableItems(editor, variables) {
+        return variables.map(v => ({
+            type: 'menuitem',
+            text: `\${${v}}`,
+            onAction: function() {
+                editor.insertContent(`\${${v}}`);
+            }
+        }));
+    }
 
+    const isiSurat = <?= json_decode($jenisSurat["template"]) ?>
     tinymce.init({
         selector: '#form_template',
         plugins: 'lists link table code',
         toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | variables | code',
         setup: function(editor) {
+            const variableNames = [
+                'no_kk', 'alamat', 'rt_rw', 'desa', 'kecamatan', 'kabupaten',
+                'kode_pos', 'nik', 'nama', 'jenis_kelamin', 'tempat_lahir',
+                'agama', 'pendidikan', 'pekerjaan', 'gol_darah', 'status', 'kewarganegaraan'
+            ];
+
+            const items = generateVariableItems(editor, variableNames);
+
             editor.ui.registry.addMenuButton('variables', {
                 text: 'Variables',
                 fetch: function(callback) {
-                    const items = [{
-                            type: 'menuitem',
-                            text: '{{nama}}',
-                            onAction: function() {
-                                editor.insertContent('{{nama}}');
-                            }
-                        },
-                        {
-                            type: 'menuitem',
-                            text: '{{alamat}}',
-                            onAction: function() {
-                                editor.insertContent('{{alamat}}');
-                            }
-                        },
-                        {
-                            type: 'menuitem',
-                            text: '{{tanggal_lahir}}',
-                            onAction: function() {
-                                editor.insertContent('{{tanggal_lahir}}');
-                            }
-                        },
-                        {
-                            type: 'menuitem',
-                            text: '{{nik}}',
-                            onAction: function() {
-                                editor.insertContent('{{nik}}');
-                            }
-                        },
-                        {
-                            type: 'menuitem',
-                            text: '{{umur}}',
-                            onAction: function() {
-                                editor.insertContent('{{umur}}');
-                            }
-                        }
-                    ];
                     callback(items);
                 }
             });
