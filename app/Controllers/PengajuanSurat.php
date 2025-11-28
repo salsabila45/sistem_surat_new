@@ -70,7 +70,7 @@ class PengajuanSurat extends BaseController
 
         // Ambil data dengan pagination
         $pengajuanSurat = $builder
-            ->orderBy('tanggal_pengajuan', 'DESC')
+            ->orderBy('tanggal_pengajuan', 'ASC')
             ->paginate($perPage, 'pengajuan_surat');
 
         // Ambil semua jenis surat buat dropdown
