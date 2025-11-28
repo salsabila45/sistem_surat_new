@@ -159,23 +159,29 @@ class PengajuanSurat extends BaseController
     {
         $files = $this->request->getFiles();
 
-        if (isset($files['lampiran']) && count($files['lampiran']) > 0) {
-            // Pastikan folder tujuan ada
-            $uploadPath = WRITEPATH . 'uploads/lampiran/';
+        $maxSizeKB = 5120; // 5 MB = 5120 KB
 
+        if (isset($files['lampiran']) && count($files['lampiran']) > 0) {
+
+            $uploadPath = WRITEPATH . 'uploads/lampiran/';
             if (!is_dir($uploadPath)) {
                 mkdir($uploadPath, 0755, true);
             }
 
             foreach ($files['lampiran'] as $file) {
                 if ($file->isValid() && !$file->hasMoved()) {
+
+                    // Tambahan 2 baris ini saja: cek ukuran file
+                    if ($file->getSizeByUnit('kb') > $maxSizeKB) {
+                        return redirect()->back()->with('error', 'File terlalu besar, maks 5 MB');
+                    }
+
                     $newName = $file->getRandomName();
                     $file->move($uploadPath, $newName);
 
                     $this->lampiranModel->insert([
                         'pengajuan_id' => $pengajuanId,
                         'nama_file'    => $file->getClientName(),
-                        // simpan path relatif ke WRITEPATH (bukan public)
                         'path_file'    => 'uploads/lampiran/' . $newName,
                         'tipe_file'    => $file->getClientMimeType(),
                         'ukuran_file'  => $file->getSizeByUnit('kb'),
