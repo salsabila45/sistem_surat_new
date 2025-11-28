@@ -325,13 +325,25 @@ class PengajuanSurat extends BaseController
                         font-size: 1rem;
                         text-align: center;
                     }
-                    table {
-                        width: 100%; 
-                        border-collapse: 
-                        collapse; border: none;
+                   tr, tr td {
+                        height: auto !important;
+                        min-height: 0 !important;
+                        line-height: normal !important;
                     }
                     td {
-                        border: none;
+                        padding: 3px 0;
+                        vertical-align: top;
+                        line-height: 1.4 !important;
+                    }
+                    table {
+                        height: auto !important;
+                        border-collapse: collapse;
+                        page-break-inside: avoid;
+                        margin-top: 0rem;
+                        margin-bottom: 0rem;
+                    }
+                    table td:nth-child(2) { 
+                        width: 20px; 
                     }
                 </style>
             </head>

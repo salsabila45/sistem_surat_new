@@ -83,6 +83,7 @@
                     </div>
                     <img src="/uploads/desa/<?= $kopSurat['logo'] ?>" alt="" class="logo-hidden w-16 h-16 justify-start opacity-0">
                 </div>
+
                 <div id="preview_slot"></div>
             </div>
         </div>
@@ -187,8 +188,19 @@
 
         const noSurat = noSuratInput.value.trim();
         slotPreview.innerHTML = `
-        <style>
-            table { margin-bottom: 1rem; }
+         <style>
+            tr,
+            tr td {
+                height: auto !important;
+                min-height: 0 !important;
+                line-height: normal !important;
+            }
+
+            td {
+                padding: 0px 0;
+                vertical-align: top;
+                line-height: 1.4 !important;
+            }
         </style>
         ${gen_konten_surat({
             noSurat,

@@ -90,6 +90,20 @@
                     <p class="text-sm mt-1">Nomor: ....../....../....../2025</p>
                 </div>
 
+                <style>
+                    tr,
+                    tr td {
+                        height: auto !important;
+                        min-height: 0 !important;
+                        line-height: normal !important;
+                    }
+
+                    td {
+                        padding: 0px 0;
+                        vertical-align: top;
+                        line-height: 1.4 !important;
+                    }
+                </style>
                 <div id="template_slot" class="text-justify leading-relaxed text-gray-800 mb-10"></div>
             </div>
         </div>
@@ -165,7 +179,7 @@
         const syarat = persyaratanSurat.value.trim();
 
         judulSlot.innerText = judul || 'Judul Surat';
-        isiSuratSlot.innerHTML = isi ? `<div style="text-indent:2rem">${isi}</div>` : '<p><i>Belum ada isi surat</i></p>';
+        isiSuratSlot.innerHTML = isi ? `<div>${isi}</div>` : '<p><i>Belum ada isi surat</i></p>';
     };
 
     judulSurat.addEventListener('keyup', () => {
