@@ -87,6 +87,8 @@ class Masyarakat extends BaseController
             'nama_lengkap' => 'required|min_length[3]',
             'nik' => 'required|min_length[16]|max_length[16]',
             'alamat' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
             'no_hp' => 'required|min_length[10]|max_length[15]',
         ]);
 
@@ -98,6 +100,8 @@ class Masyarakat extends BaseController
         $data = [
             'nama_lengkap' => $this->request->getPost('nama_lengkap'),
             'nik' => $this->request->getPost('nik'),
+            'tempat_lahir' => $this->request->getPost('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
             'alamat' => $this->request->getPost('alamat'),
             'no_hp' => $this->request->getPost('no_hp'),
             'email' => $this->request->getPost('email'),
