@@ -27,12 +27,12 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-        'DSN'          => '',
+        'DSN'          => 'mysql:host=ballast.proxy.rlwy.net;port=30232;dbname=railway;charset=utf8mb4',
         'hostname'     => 'ballast.proxy.rlwy.net',
         'username'     => 'root',
         'password'     => 'izQITNBeiBFDlWoMVIBccEFOGRjTjLUA',
         'database'     => 'railway',
-        'DBDriver'     => 'MySQLi',
+        'DBDriver'     => 'MySQL',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
