@@ -4,10 +4,12 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # ✅ Install dependency untuk intl
 RUN apt-get update && apt-get install -y \
-    libicu-dev git unzip
+    libicu-dev \
+    libpng-dev \
+    git unzip
 
 # ✅ Install ekstensi yang dibutuhkan CI4 + MySQL
-RUN docker-php-ext-install intl pdo_mysql mysqli
+RUN docker-php-ext-install intl pdo_mysql mysqli gd
 
 RUN a2enmod rewrite
 
