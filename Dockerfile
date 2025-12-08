@@ -6,10 +6,11 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN apt-get update && apt-get install -y \
     libicu-dev \
     libpng-dev \
+    libzip-dev \
     git unzip
 
 # ✅ Install ekstensi yang dibutuhkan CI4 + MySQL
-RUN docker-php-ext-install intl pdo_mysql mysqli gd
+RUN docker-php-ext-install intl pdo_mysql mysqli gd zip
 
 RUN a2enmod rewrite
 
