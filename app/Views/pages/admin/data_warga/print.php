@@ -76,6 +76,7 @@
                     <th>No</th>
                     <th>NIK</th>
                     <th>Nama Lengkap</th>
+                    <th>TTL</th>
                     <th>Alamat</th>
                     <th>No HP</th>
                     <th>Email</th>
@@ -92,6 +93,7 @@
                             <td><?= $no++ ?></td>
                             <td><?= esc($row['nik']) ?></td>
                             <td><?= esc($row['nama_lengkap']) ?></td>
+                            <td><?= esc($row['tempat_lahir']) ?>, <?= date('d-m-Y', strtotime($row['tanggal_lahir'])) ?></td>
                             <td><?= esc($row['alamat']) ?></td>
                             <td><?= esc($row['no_hp']) ?></td>
                             <td><?= esc($row['email']) ?></td>

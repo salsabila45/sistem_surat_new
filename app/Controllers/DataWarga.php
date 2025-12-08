@@ -230,7 +230,7 @@ class DataWarga extends BaseController
 
         // Judul
         $sheet->setCellValue('A1', 'DATA WARGA');
-        $sheet->mergeCells('A1:I1');
+        $sheet->mergeCells('A1:J1');
         $sheet->getStyle('A1')->getFont()->setSize(16)->setBold(true);
         $sheet->getStyle('A1')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
 
@@ -245,6 +245,7 @@ class DataWarga extends BaseController
             'No',
             'NIK',
             'Nama Lengkap',
+            'TTL',
             'Alamat',
             'No HP',
             'Email',
@@ -261,7 +262,7 @@ class DataWarga extends BaseController
             'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER],
             'borders' => ['allBorders' => ['borderStyle' => Border::BORDER_THIN]],
         ];
-        $sheet->getStyle('A3:I3')->applyFromArray($headerStyle);
+        $sheet->getStyle('A3:J3')->applyFromArray($headerStyle);
 
         // Isi data
         $row = 4;
@@ -270,16 +271,17 @@ class DataWarga extends BaseController
             $sheet->setCellValue('A' . $row, $no++);
             $sheet->setCellValue('B' . $row, $data['nik']);
             $sheet->setCellValue('C' . $row, $data['nama_lengkap']);
-            $sheet->setCellValue('D' . $row, $data['alamat']);
-            $sheet->setCellValue('E' . $row, $data['no_hp']);
-            $sheet->setCellValue('F' . $row, $data['email']);
-            $sheet->setCellValue('G' . $row, $data['jenis_kelamin']);
-            $sheet->setCellValue('H' . $row, $data['agama']);
-            $sheet->setCellValue('I' . $row, $data['status']);
+            $sheet->setCellValue('D' . $row, $data['tempat_lahir'] . ', ' . date('d-m-Y', strtotime($data['tanggal_lahir'])));
+            $sheet->setCellValue('E' . $row, $data['alamat']);
+            $sheet->setCellValue('F' . $row, $data['no_hp']);
+            $sheet->setCellValue('G' . $row, $data['email']);
+            $sheet->setCellValue('H' . $row, $data['jenis_kelamin']);
+            $sheet->setCellValue('I' . $row, $data['agama']);
+            $sheet->setCellValue('J' . $row, $data['status']);
 
             // Warna selang-seling
             if ($row % 2 == 0) {
-                $sheet->getStyle("A{$row}:I{$row}")
+                $sheet->getStyle("A{$row}:J{$row}")
                     ->getFill()
                     ->setFillType(Fill::FILL_SOLID)
                     ->getStartColor()
@@ -290,12 +292,12 @@ class DataWarga extends BaseController
         }
 
         // Border seluruh data
-        $sheet->getStyle('A3:I' . ($row - 1))
+        $sheet->getStyle('A3:J' . ($row - 1))
             ->getBorders()->getAllBorders()
             ->setBorderStyle(Border::BORDER_THIN);
 
         // Auto width tiap kolom
-        foreach (range('A', 'I') as $column) {
+        foreach (range('A', 'J') as $column) {
             $sheet->getColumnDimension($column)->setAutoSize(true);
         }
 

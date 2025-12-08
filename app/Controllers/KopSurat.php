@@ -77,8 +77,7 @@ class KopSurat extends BaseController
         ];
 
         if ($this->kopSuratModel->save($data)) {
-            return redirect()->to('/admin/kop-surat/')
-                ->with('success', 'Kop surat berhasil diperbarui.');
+            return redirect()->back()->with('success', 'Kop surat berhasil diperbarui.');
         }
 
         return redirect()->back()->withInput()->with('error', 'Gagal menyimpan data.');
