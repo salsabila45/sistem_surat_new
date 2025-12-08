@@ -32,7 +32,7 @@ class Database extends Config
         'username'     => 'root',
         'password'     => 'izQITNBeiBFDlWoMVIBccEFOGRjTjLUA',
         'database'     => 'railway',
-        'DBDriver'     => 'MySQL',
+        'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
