@@ -63,7 +63,9 @@
     <div class="w-11/12 lg:w-10/12 mx-auto">
         <?= $this->renderSection('content') ?>
     </div>
-    
+
+    <?= $this->renderSection('script'); ?>
+
     <script>
         setTimeout(() => {
             document.querySelectorAll('[role="alert"]').forEach(el => el.remove());

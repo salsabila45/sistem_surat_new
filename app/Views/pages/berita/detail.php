@@ -8,6 +8,15 @@
         <div class="mt-6">
             <?= $detailBerita['isi'] ?>
         </div>
+
+        <h4 class="font-semibold text-xl mt-12! mb-6! text-xl text-gray-800">Tulis Komentar</h4>
+        <div id="cusdis_thread"
+            data-host="https://cusdis.com"
+            data-app-id="67431cc0-6e40-46d8-bfc6-d3e946c2f56a"
+            data-page-id="news-<?= $detailBerita['id'] ?>"
+            data-page-url="<?= current_url() ?>"
+            data-page-title="<?= esc($detailBerita['judul']) ?>">
+        </div>
     </div>
 
     <!-- <div class="col-span-1"></div> -->
@@ -33,4 +42,19 @@
         </div>
     </div>
 </div>
+<?= $this->endSection() ?>
+
+
+<?= $this->section('script') ?>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<script>
+    const resizeCusdis = () => {
+        const iframe = document.querySelector('#cusdis_thread iframe');
+        if (!iframe) return;
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 400 + 'px';
+    };
+
+    setTimeout(resizeCusdis, 2000);
+</script>
+
 <?= $this->endSection() ?>
