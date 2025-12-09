@@ -50,7 +50,7 @@
             <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-5">
                 <?php foreach ($dataBerita as $berita): ?>
                     <div class="">
-                        <a href="<?= $berita['slug'] ?>">
+                        <a href="/berita/<?= $berita['slug'] ?>">
                             <img src="/uploads/berita/<?= $berita['gambar'] ?>" class="w-full aspect-video object-cover! mb-4 rounded-lg shadow-none transition transition-shadow duration-500 ease-in-out group-hover:shadow-lg" alt="Gambar Berita">
                             <div class="flex items-center">
                                 <span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold text-white font-display mr-2 capitalize bg-gray-400">
